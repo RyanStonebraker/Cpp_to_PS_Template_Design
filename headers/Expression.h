@@ -20,9 +20,10 @@ public:
   Expression();
   ~Expression() = default;
 
-  std::string drawFullExpressionToString();
+  std::string drawToString();
+  void drawToFile(const std::string & file);
   void setUnits(size_t units);
-  size_t getUnits();
+  size_t getUnits() const;
 
 private:
   static size_t expressionCount;
