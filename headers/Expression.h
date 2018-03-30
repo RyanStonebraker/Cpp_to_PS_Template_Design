@@ -6,6 +6,11 @@
 // drawCurrentAboveToString and drawCurrentBelowToString allow an expression to
 // "draw" PostScript above and below children in _subExpressions if desired.
 // expressionCount exists to create unique names.
+//
+// TODO: In order for rotate and scale to work in PS, gsave and grestore need to wrap
+// everything. This wouldn't be possible from the scope of rotate or scale, so
+// there should exist a flag in the inherited Shape class that wraps it in gsave
+// and grestore
 
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
@@ -20,6 +25,7 @@ public:
   Expression();
   ~Expression() = default;
 
+  void addExpression(std::unique_ptr<Expression> subExpression);
   std::string drawToString();
   void drawToFile(const std::string & file);
   void setUnits(size_t units);

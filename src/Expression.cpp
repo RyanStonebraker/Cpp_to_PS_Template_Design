@@ -4,11 +4,16 @@
 
 #include "Expression.h"
 #include <fstream>
+#include <utility>
 
 static size_t expressionCount = 0;
 
 Expression::Expression() {
   ++expressionCount;
+}
+
+void Expression::addExpression(std::unique_ptr<Expression> subExpression) {
+  _subExpressions.push_back(std::move(subExpression));
 }
 
 std::string Expression::drawToString() {
