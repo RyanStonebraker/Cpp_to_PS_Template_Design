@@ -14,22 +14,22 @@ A framework for generating PostScript from C++.
 
 ## Work List
 ### Ryan
-- Abstract Expression class
-- Polygon
-- Spacer
-- Rotated
-- Vertical
+- [x] Abstract Expression class
+- [ ] Polygon
+- [ ] Spacer
+- [ ] Rotated
+- [ ] Vertical
 
 ### Chris
-- Abstract Shape class inherited from Expression
-- Rectangle
-- Square
-- Scaled
-- Horizontal
+- [ ] Abstract Shape class inherited from Expression
+- [ ] Rectangle
+- [ ] Square
+- [ ] Scaled
+- [ ] Horizontal
 
 ### Thatcher
-- Circle
-- Rectangle
-- Triangle
-- Layered
-- Simple test cases
+- [ ] Circle
+- [ ] Rectangle
+- [ ] Triangle
+- [ ] Layered
+- [ ] Simple test cases
