@@ -21,7 +21,7 @@ A framework for generating PostScript from C++.
 - [ ] Vertical
 
 ### Chris
-- [ ] Abstract Shape class inherited from Expression
+- [x] Abstract Shape class inherited from Expression
 - [ ] Rectangle
 - [ ] Square
 - [ ] Scaled
