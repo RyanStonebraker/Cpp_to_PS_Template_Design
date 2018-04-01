@@ -8,8 +8,9 @@
 #include <sys/types.h>
 #include "Expression.h"
 
-class Shape : Expression {
+class Shape : public Expression {
 public:
+	Shape() = default;
 	void setX(size_t x);
 	void setY(size_t y);
 	void setPosition(size_t x, size_t y);
@@ -20,7 +21,8 @@ public:
 	void setBounds(size_t width, size_t height);
 	size_t getWidth();
 	size_t getHeight();
-
+	virtual std::string drawCurrentAboveToString() = 0;
+	virtual std::string drawCurrentBelowToString() = 0;
 private:
 	size_t _x;
 	size_t _y;

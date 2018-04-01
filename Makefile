@@ -12,6 +12,9 @@ build: $(SOURCES)
 debug: $(SOURCES)
 	$(CC) $(CFLAGS) $(DEBUGFLAGS) -o $(TARGET) $(SOURCES)
 
+run:
+	$(TARGET)
+
 .PHONY : clean
 clean :
 	-rm $(TARGET) $(TEST_FILES)

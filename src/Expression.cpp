@@ -6,24 +6,28 @@
 #include <fstream>
 #include <utility>
 
-static size_t expressionCount = 0;
+Expression::Expression() : _enclosingExpression(false), _units(72) {}
 
-Expression::Expression() {
-  ++expressionCount;
-}
-
-void Expression::addExpression(std::unique_ptr<Expression> subExpression) {
-  _subExpressions.push_back(std::move(subExpression));
+void Expression::addExpression(std::shared_ptr<Expression> subExpression) {
+  _subExpressions.emplace_back(std::move(subExpression));
 }
 
 std::string Expression::drawToString() {
-  auto fullExpression = drawCurrentAboveToString();
-  for (auto & expression : _subExpressions) {
-    fullExpression += expression->drawToString();
-  }
-  fullExpression += drawCurrentBelowToString();
+  std::string topEnclosingExpression;
+  std::string enclosedExpression;
+  std::string bottomEnclosingExpression;
 
-  return fullExpression;
+  enclosedExpression += drawCurrentAboveToString() + "\n";
+  for (auto & expression : _subExpressions) {
+    if (!expression->_enclosingExpression)
+      enclosedExpression += expression->drawToString();
+    else if (expression->_enclosingExpression) {
+      topEnclosingExpression += expression->drawCurrentAboveToString() + "\n";
+      bottomEnclosingExpression += expression->drawCurrentBelowToString();
+    }
+  }
+  enclosedExpression += drawCurrentBelowToString() + "\n";
+  return topEnclosingExpression + enclosedExpression + bottomEnclosingExpression;
 }
 
 void Expression::drawToFile(const std::string & file) {
@@ -38,4 +42,25 @@ void Expression::setUnits(size_t units) {
 
 size_t Expression::getUnits() const {
   return _units;
+}
+
+void Expression::setEnclosing() {
+  _enclosingExpression = true;
+}
+
+std::string Expression::convertUnits(double expr, size_t oppUnits) {
+  auto convertedNum = std::to_string(expr * (getUnits() / oppUnits));
+  if (convertedNum.find(".0") == std::string::npos)
+    return convertedNum;
+  for (int i = convertedNum.size() -1; i >= 0; --i) {
+    if (convertedNum[i] == '0')
+      convertedNum = convertedNum.substr(0, convertedNum.size()-1);
+    else if (convertedNum[i] == '.') {
+      convertedNum = convertedNum.substr(0, convertedNum.size()-1);
+      break;
+    }
+    else
+      break;
+  }
+  return convertedNum;
 }
