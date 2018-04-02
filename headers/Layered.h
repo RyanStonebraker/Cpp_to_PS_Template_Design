@@ -25,7 +25,7 @@ public:
     std::string drawCurrentAboveToString() override;
     std::string drawCurrentBelowToString() override;
 private:
-    std::vector<std::shared_ptr<Shape>> m_shapes;
+    std::vector<std::shared_ptr<Shape>> _shapes;
 };
 
 

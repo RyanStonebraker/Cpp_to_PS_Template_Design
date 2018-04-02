@@ -14,22 +14,37 @@
 
 
 Layered::Layered(std::initializer_list<std::shared_ptr<Shape>> shapes)
-:Shape(0,0), m_shapes(std::move(shapes))
+:Shape(0,0), _shapes(std::move(shapes))
 {
-    for(unsigned int i = 0; i < m_shapes.size(); ++i)
+    for(unsigned int i = 0; i < _shapes.size(); ++i)
     {
-        if(getWidth() < m_shapes[i]->getWidth())
-            setWidth(m_shapes[i]->getWidth());
-        if(getHeight() < m_shapes[i]->getHeight())
-            setHeight(m_shapes[i]->getHeight());
+        if(getWidth() < _shapes[i]->getWidth())
+            setWidth(_shapes[i]->getWidth());
+        if(getHeight() < _shapes[i]->getHeight())
+            setHeight(_shapes[i]->getHeight());
     }
 }
 
 std::string Layered::drawCurrentAboveToString(){
-    return "";
+  std::stringstream ss;
+
+  ss << psHeader(getX(),getY());
+
+  ss << getWidth() << std::endl;
+	ss << getHeight() << std::endl;
+
+	for(unsigned int i = 0; i < _shapes.size(); ++i)
+	{
+		ss << "gsave\n";
+    ss << _shapes[i]->drawCurrentAboveToString();
+    ss << "grestore\n";
+	}
+
+  ss << psFooter();
+
+  return ss.str();
 }
 
 std::string Layered::drawCurrentBelowToString(){
-    return "";
+  return {};
 }
-
