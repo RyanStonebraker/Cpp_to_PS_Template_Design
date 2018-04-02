@@ -4,6 +4,7 @@
 
 #include "Polygon.h"
 #include "Rotate.h"
+#include "Spacer.h"
 
 #include <iostream>
 using std::cout;
@@ -12,7 +13,7 @@ using std::endl;
 #include <memory>
 
 int main () {
-  Polygon testShape(5, 3);
+  Spacer testShape(5, 3);
 
   Rotate rotateTest(testShape, Rotate::RotationAngle::FLIP);
   testShape.addExpression(rotateTest);

@@ -1,25 +1,16 @@
 gsave
-324 324 translate
+396 324 translate
 180 rotate
--324 -324 translate
+-396 -324 translate
 
 newpath
-/xOrigin 216 def
-/yOrigin 216 def
-/radius 72 def
-/numberOfSides 5 def
-/angle 0 def
-/angleInc 360 numberOfSides div def
-/cosSide angle cos radius mul xOrigin add def
-/sinSide angle sin radius mul yOrigin add def
-cosSide sinSide moveto
-1 1 numberOfSides 1 add {
-  /cosSide angle cos radius mul xOrigin add def
-  /sinSide angle sin radius mul yOrigin add def
-  cosSide sinSide lineto
-  /angle angle angleInc add def
-} for
+216 216 moveto
+360 0 rlineto
+0 216 rlineto
+-360 0 rlineto
 closepath
-stroke
+1 setgray
+fill
+
 
 grestore

@@ -16,7 +16,7 @@ A framework for generating PostScript from C++.
 ### Ryan
 - [x] Abstract Expression class
 - [x] Polygon
-- [ ] Spacer
+- [x] Spacer
 - [x] Rotated
 - [ ] Vertical
 
