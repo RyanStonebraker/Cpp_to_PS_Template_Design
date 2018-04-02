@@ -8,10 +8,13 @@
 
 Expression::Expression() : _enclosingExpression(false), _units(72) {}
 
-// template <typename InherittedExpression>
-// void Expression::addExpression(InherittedExpression & subExpression) {
-//   _subExpressions.emplace_back(std::move(std::make_shared<InherittedExpression>(subExpression)));
-// }
+std::shared_ptr<Expression> & Expression::operator[](size_t index) {
+  return _subExpressions[index];
+}
+
+size_t Expression::getNumberOfSubExpressions() const {
+  return _subExpressions.size();
+}
 
 std::string Expression::drawToString() {
   std::string topEnclosingExpression;
@@ -24,7 +27,7 @@ std::string Expression::drawToString() {
       enclosedExpression += expression->drawToString();
     else if (expression->_enclosingExpression) {
       topEnclosingExpression += expression->drawCurrentAboveToString() + "\n";
-      bottomEnclosingExpression += expression->drawCurrentBelowToString();
+      bottomEnclosingExpression += expression->drawCurrentBelowToString() + "\n";
     }
   }
   enclosedExpression += drawCurrentBelowToString() + "\n";
@@ -64,4 +67,8 @@ std::string Expression::convertUnits(double expr, size_t oppUnits) {
       break;
   }
   return convertedNum;
+}
+
+void Expression::addSharedExpression(std::shared_ptr<Expression> subExpression) {
+  _subExpressions.push_back(subExpression);
 }

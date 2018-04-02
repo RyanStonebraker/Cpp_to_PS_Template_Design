@@ -9,17 +9,19 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <functional>
 
 class Expression {
 public:
   Expression();
   ~Expression() = default;
-
+  std::shared_ptr<Expression> & operator[](size_t index);
+  size_t getNumberOfSubExpressions() const;
   template <typename InheritedExpression>
   void addExpression(InheritedExpression & subExpression) {
-    _subExpressions.emplace_back(std::make_shared<InheritedExpression>(subExpression));
+  _subExpressions.emplace_back(std::make_shared<InheritedExpression>(subExpression));
   }
-  
+  void addSharedExpression(std::shared_ptr<Expression> subExpression);
   std::string drawToString();
   void drawToFile(const std::string & file);
   void setUnits(size_t units);
