@@ -5,12 +5,6 @@
 #include <memory>
 #include <iostream>
 
-// template <typename InherittedShape>
-// Rotate::Rotate(InherittedShape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
-//   _target = std::make_shared<InherittedShape>(shape);
-//   setEnclosing();
-// }
-
 std::string Rotate::drawCurrentAboveToString() {
   auto xOrigin = _target->getX() + double(_target->getWidth())/2;
   auto yOrigin = _target->getY() + double(_target->getHeight())/2;

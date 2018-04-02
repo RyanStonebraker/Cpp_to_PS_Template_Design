@@ -14,10 +14,8 @@ class Rotate : public Expression {
 public:
   enum RotationAngle {Left = 90, FLIP = 180, Right = 270};
 
-  // template <typename InherittedShape>
-  // Rotate(InherittedShape & shape, RotationAngle rotationAmount);
-  template <typename InherittedShape>
-  Rotate(InherittedShape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
+  template <typename InheritedShape>
+  Rotate(InheritedShape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
     _target = &shape;
     setEnclosing();
   }

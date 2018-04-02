@@ -1,11 +1,14 @@
-/inch {72 mul} def
+gsave
+324 324 translate
+180 rotate
+-324 -324 translate
 
 newpath
-/xOrigin 3 inch def
-/yOrigin 3 inch def
-/radius 1 inch def
-/numberOfSides 3 def
-/angle 45 def
+/xOrigin 216 def
+/yOrigin 216 def
+/radius 72 def
+/numberOfSides 5 def
+/angle 0 def
 /angleInc 360 numberOfSides div def
 /cosSide angle cos radius mul xOrigin add def
 /sinSide angle sin radius mul yOrigin add def
@@ -16,6 +19,7 @@ cosSide sinSide moveto
   cosSide sinSide lineto
   /angle angle angleInc add def
 } for
-
 closepath
 stroke
+
+grestore

@@ -12,10 +12,10 @@ using std::endl;
 #include <memory>
 
 int main () {
-  Polygon testShape(4, 3);
+  Polygon testShape(5, 3);
 
   Rotate rotateTest(testShape, Rotate::RotationAngle::FLIP);
   testShape.addExpression(rotateTest);
   testShape.setPosition(3,3);
-  testShape.drawToFile("test.ps");
+  testShape.drawToFile("test2.ps");
 }

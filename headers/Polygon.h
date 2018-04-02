@@ -1,5 +1,5 @@
 // Polygon.h
-// The inheritted Polygon concrete class
+// The inherited Polygon concrete class
 
 #ifndef POLYGON_H
 #define POLYGON_H
@@ -12,8 +12,11 @@ public:
   std::string drawCurrentAboveToString() override;
   std::string drawCurrentBelowToString() override;
   size_t getSides() const;
+  double getStartingAngle() const;
+  void setStartingAngle(double angle);
 private:
   size_t _sides;
+  double _startingAngle;
 };
 
 #endif
