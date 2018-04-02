@@ -6,6 +6,7 @@
 #include "Rotate.h"
 #include "Spacer.h"
 #include "Vertical.h"
+#include "Layered.h"
 
 #include <iostream>
 using std::cout;
@@ -24,6 +25,6 @@ int main () {
   shapes.push_back(std::make_shared<Polygon>(pentagon));
   shapes.push_back(std::make_shared<Polygon>(triangle));
   Vertical stacker(shapes);
-
-  stacker.drawToFile("test2.ps");
+  Layered layers {std::make_shared<Polygon>(pentagon), std::make_shared<Polygon>(triangle)};
+  layers.drawToFile("test2.ps");
 }

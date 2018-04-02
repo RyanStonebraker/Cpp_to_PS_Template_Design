@@ -22,8 +22,8 @@ public:
     Layered() = default;
     Layered(std::initializer_list<std::shared_ptr<Shape>> shapes);
     ~Layered() = default;
-    std::string drawCurrentAboveToString();
-    std::string drawCurrentBelowToString();
+    std::string drawCurrentAboveToString() override;
+    std::string drawCurrentBelowToString() override;
 private:
     std::vector<std::shared_ptr<Shape>> m_shapes;
 };
