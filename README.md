@@ -30,6 +30,6 @@ A framework for generating PostScript from C++.
 ### Thatcher
 - [x] Circle
 - [~] Canvas (parent of everything else - calling drawToFile will draw everything)
-- [ ] Triangle
-- [ ] Layered
+- [ x] Triangle
+- [ ~] Layered
 - [ ] Test cases with Catch (and example programs)
