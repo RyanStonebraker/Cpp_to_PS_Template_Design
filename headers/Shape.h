@@ -11,7 +11,7 @@
 class Shape : public Expression {
 public:
 	Shape() = default;
-  Shape(int x, int y, double width, double height): _x(x), _y(y), _width(width), _height(height) {}
+  	Shape(int x, int y, double width, double height): _x(x), _y(y), _width(width), _height(height) {}
 	void setX(size_t x);
 	void setY(size_t y);
 	void setPosition(size_t x, size_t y);
@@ -24,7 +24,7 @@ public:
 	size_t getHeight();
 	virtual std::string drawCurrentAboveToString() = 0;
 	virtual std::string drawCurrentBelowToString() = 0;
-private:
+protected:
 	size_t _x;
 	size_t _y;
 	size_t _width;
