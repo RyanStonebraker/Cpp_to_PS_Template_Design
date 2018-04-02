@@ -15,7 +15,7 @@ public:
   size_t getSides() const;
   double getStartingAngle() const;
   void setStartingAngle(double angle);
-private:
+protected:
   size_t _sides;
   double _startingAngle;
 };

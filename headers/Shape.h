@@ -26,7 +26,7 @@ public:
 	size_t getHeight();
 	virtual std::string drawCurrentAboveToString() = 0;
 	virtual std::string drawCurrentBelowToString() = 0;
-private:
+protected:
 	double _x;
 	double _y;
 	double _width;
