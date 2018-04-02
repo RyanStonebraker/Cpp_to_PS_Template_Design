@@ -8,9 +8,10 @@
 
 Expression::Expression() : _enclosingExpression(false), _units(72) {}
 
-void Expression::addExpression(std::shared_ptr<Expression> subExpression) {
-  _subExpressions.emplace_back(std::move(subExpression));
-}
+// template <typename InherittedExpression>
+// void Expression::addExpression(InherittedExpression & subExpression) {
+//   _subExpressions.emplace_back(std::move(std::make_shared<InherittedExpression>(subExpression)));
+// }
 
 std::string Expression::drawToString() {
   std::string topEnclosingExpression;

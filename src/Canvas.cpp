@@ -90,4 +90,3 @@ string psHeader(int x, int y){
 string psFooter(){
     return "closepath\nstroke\ngrestore\n";
 }
-

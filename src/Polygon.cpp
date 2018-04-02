@@ -3,8 +3,8 @@
 
 #include "Polygon.h"
 
-Polygon::Polygon(size_t width, size_t height, size_t numberOfSides) : _sides(numberOfSides) {
-  setBounds(width, height);
+Polygon::Polygon(double numberOfSides, double dimension) : _sides(numberOfSides) {
+  setBounds(dimension, dimension);
 }
 
 std::string Polygon::drawCurrentAboveToString () {
@@ -15,7 +15,7 @@ std::string Polygon::drawCurrentAboveToString () {
   polygonPath += "0 " + convertUnits(getHeight(), 1) + " rlineto\n";
   polygonPath += "-" + convertUnits(getWidth(), 1) + " 0 rlineto\n";
   polygonPath += "closepath\n";
-  polygonPath += "stroke\n";
+  polygonPath += "stroke";
   return polygonPath;
 }
 

@@ -15,7 +15,11 @@ public:
   Expression();
   ~Expression() = default;
 
-  void addExpression(std::shared_ptr<Expression> subExpression);
+  // void addExpression(Expression & subExpression);
+  template <typename InherittedExpression>
+  void addExpression(InherittedExpression & subExpression) {
+    _subExpressions.emplace_back(std::make_shared<InherittedExpression>(subExpression));
+  }
   std::string drawToString();
   void drawToFile(const std::string & file);
   void setUnits(size_t units);

@@ -5,20 +5,22 @@
 #include <memory>
 #include <iostream>
 
-Rotate::Rotate(std::shared_ptr<Shape> shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
-  _origin.first = shape->getX() + double(shape->getWidth())/2;
-  _origin.second = shape->getY() + double(shape->getHeight())/2;
-  setEnclosing();
-}
+// template <typename InherittedShape>
+// Rotate::Rotate(InherittedShape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
+//   _target = std::make_shared<InherittedShape>(shape);
+//   setEnclosing();
+// }
 
 std::string Rotate::drawCurrentAboveToString() {
+  auto xOrigin = _target->getX() + double(_target->getWidth())/2;
+  auto yOrigin = _target->getY() + double(_target->getHeight())/2;
   std::string topString;
   topString += "gsave\n";
 
-  topString += convertUnits(_origin.first, 1) + " " + convertUnits(_origin.second, 1) + " translate\n";
+  topString += convertUnits(xOrigin, 1) + " " + convertUnits(yOrigin, 1) + " translate\n";
   auto rotation = std::to_string(_rotationAmount);
   topString += rotation + " rotate\n";
-  topString += convertUnits(-_origin.first, 1) + " " + convertUnits(-_origin.second, 1) + " translate\n";
+  topString += convertUnits(-xOrigin, 1) + " " + convertUnits(-yOrigin, 1) + " translate\n";
   return topString;
 }
 

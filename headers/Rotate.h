@@ -13,13 +13,20 @@
 class Rotate : public Expression {
 public:
   enum RotationAngle {Left = 90, FLIP = 180, Right = 270};
-  Rotate(std::shared_ptr<Shape> shape, RotationAngle rotationAmount);
+
+  // template <typename InherittedShape>
+  // Rotate(InherittedShape & shape, RotationAngle rotationAmount);
+  template <typename InherittedShape>
+  Rotate(InherittedShape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
+    _target = &shape;
+    setEnclosing();
+  }
 
   std::string drawCurrentAboveToString() override;
   std::string drawCurrentBelowToString() override;
 private:
   RotationAngle _rotationAmount;
-  std::pair <double, double> _origin;
+  Shape * _target;
 };
 
 #endif
