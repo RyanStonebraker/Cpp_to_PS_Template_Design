@@ -18,7 +18,7 @@ A framework for generating PostScript from C++.
 - [x] Polygon
 - [x] Spacer
 - [x] Rotated
-- [ ] Vertical
+- [x] Vertical
 
 ### Chris
 - [x] Abstract Shape class inherited from Expression

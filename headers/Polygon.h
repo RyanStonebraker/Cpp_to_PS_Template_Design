@@ -8,6 +8,7 @@
 
 class Polygon : public Shape {
 public:
+  Polygon(Polygon &) = default;
   Polygon(double numberOfSides, double dimension);
   std::string drawCurrentAboveToString() override;
   std::string drawCurrentBelowToString() override;
