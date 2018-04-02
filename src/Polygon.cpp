@@ -33,7 +33,7 @@ std::string Polygon::drawCurrentAboveToString () {
   polygonPath += "  /angle angle angleInc add def\n";
   polygonPath += "} for\n";
   polygonPath += "closepath\n";
-  polygonPath += "stroke";
+  polygonPath += "stroke\n";
   return polygonPath;
 }
 
