@@ -12,7 +12,8 @@ class Shape : public Expression {
 public:
 	Shape() = default;
 	Shape(Shape &) = default;
-  Shape(int x, int y, double width, double height): _x(x), _y(y), _width(width), _height(height) {}
+    Shape(int x, int y, double width, double height): _x(x), _y(y), _width(width), _height(height) {}
+    Shape(int x, int y) : _x(x), _y(y) {}
 	void setX(size_t x);
 	void setY(size_t y);
 	void setPosition(size_t x, size_t y);
