@@ -28,8 +28,8 @@ A framework for generating PostScript from C++.
 - [ ] Horizontal
 
 ### Thatcher
-- [ ] Circle
-- [ ] Canvas (parent of everything else - calling drawToFile will draw everything)
+- [ x] Circle
+- [ ~] Canvas (parent of everything else - calling drawToFile will draw everything)
 - [ ] Triangle
 - [ ] Layered
 - [ ] Test cases with Catch (and example programs)
