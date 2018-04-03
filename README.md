@@ -31,5 +31,5 @@ A framework for generating PostScript from C++.
 - [x] Circle
 - [~] Canvas (parent of everything else - calling drawToFile will draw everything)
 - [ x] Triangle
-- [ ~] Layered
+- [ x] Layered
 - [ ] Test cases with Catch (and example programs)
