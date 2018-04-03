@@ -1,6 +1,6 @@
 //
 //  Circle.hpp
-//  
+//
 //
 //  Created by Thatcher Lane on 4/1/18.
 //
@@ -19,6 +19,8 @@ public:
 
     std::string draw();
     std::string draw(int x, int y) const;
+    std::string drawCurrentAboveToString();
+    std::string drawCurrentBelowToString();
 
     double getRadius();
 private:

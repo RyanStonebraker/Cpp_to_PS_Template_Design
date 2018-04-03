@@ -7,6 +7,7 @@
 #include "Spacer.h"
 #include "Vertical.h"
 #include "Layered.h"
+#include "Circle.h"
 
 #include <iostream>
 using std::cout;
