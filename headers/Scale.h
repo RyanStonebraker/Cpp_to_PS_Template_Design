@@ -10,7 +10,6 @@
 
 class Scale : public Expression {
 public:
-	// template <typename InheritedShape>
   	Scale(Shape &shape, double scaleFactorX, double scaleFactorY) {
 		_target = &shape;
 		_scaleFactorX = scaleFactorX;

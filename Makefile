@@ -6,11 +6,17 @@ SOURCES := $(wildcard src/*.cpp) $(wildcard test/*.cpp)
 TARGET := build/test_build
 TEST_FILES := $(wildcard *.ps)
 
-build: $(SOURCES)
-	$(CC) $(CFLAGS) $(OPTIMIZE) -o $(TARGET) $(SOURCES)
+build: $(filter-out test/test.cpp, $(SOURCES))
+	$(CC) $(CFLAGS) $(OPTIMIZE) -o $(TARGET) $(filter-out test/test.cpp, $(SOURCES))
 
 debug: $(SOURCES)
 	$(CC) $(CFLAGS) $(DEBUGFLAGS) -o $(TARGET) $(SOURCES)
+
+test_build:
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -o $(TARGET) $(filter-out test/sandbox.cpp, $(SOURCES))
+
+sandbox_build:
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -o $(TARGET) $(filter-out test/test.cpp, $(SOURCES))
 
 run:
 	$(TARGET)

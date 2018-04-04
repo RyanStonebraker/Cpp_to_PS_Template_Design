@@ -4,13 +4,23 @@
 #include "Vertical.h"
 #include "Shape.h"
 
-Vertical::Vertical (std::vector <std::shared_ptr<Shape>> & shapes) : _xOrigin(4), _yOrigin(2) {
+Vertical::Vertical (std::vector <std::shared_ptr<Shape>> & shapes) : _xOrigin(0), _yOrigin(0) {
   _stackedHeight = _yOrigin;
   for (auto & currentShape : shapes) {
       currentShape->setY(_stackedHeight + _yOrigin);
       _stackedHeight += currentShape->getHeight();
       currentShape->setX(_xOrigin - double(currentShape->getWidth())/2);
       addSharedExpression(currentShape);
+  }
+}
+
+Vertical::Vertical (std::initializer_list<std::shared_ptr<Shape>> & shapes) : _xOrigin(0), _yOrigin(0) {
+  _stackedHeight = _yOrigin;
+  for (auto & currentShape : shapes) {
+    currentShape->setY(_stackedHeight + _yOrigin);
+    _stackedHeight += currentShape->getHeight();
+    currentShape->setX(_xOrigin - double(currentShape->getWidth())/2);
+    addSharedExpression(currentShape);
   }
 }
 

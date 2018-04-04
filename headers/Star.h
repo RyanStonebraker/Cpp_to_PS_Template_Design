@@ -1,22 +1,20 @@
-// Polygon.h
-// The inherited Polygon concrete class
+// Star.h
+// The custom Star shape class
 
-#ifndef POLYGON_H
-#define POLYGON_H
+#ifndef STAR_H
+#define STAR_H
 
 #include "Shape.h"
 
-class Polygon : public Shape {
+class Star : public Shape {
 public:
-  Polygon(Polygon &) = default;
-  Polygon(double numberOfSides, double dimension);
+  Star(Star &) = default;
+  Star(double dimension);
   std::string drawCurrentAboveToString() override;
   std::string drawCurrentBelowToString() override;
-  size_t getSides() const;
   double getStartingAngle() const;
   void setStartingAngle(double angle);
 private:
-  size_t _sides;
   double _startingAngle;
 };
 
