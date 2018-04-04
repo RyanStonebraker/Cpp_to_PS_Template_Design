@@ -25,7 +25,7 @@ A framework for generating PostScript from C++.
 - [x] Rectangle
 - [x] Square
 - [x] Scaled
-- [ ] Horizontal
+- [x] Horizontal
 
 ### Thatcher
 - [x] Circle

@@ -14,16 +14,16 @@ public:
 	Shape(Shape &) = default;
     Shape(int x, int y, double width, double height): _x(x), _y(y), _width(width), _height(height) {}
     Shape(int x, int y) : _x(x), _y(y) {}
-	void setX(size_t x);
-	void setY(size_t y);
-	void setPosition(size_t x, size_t y);
-	size_t getX();
-	size_t getY();
-	void setWidth(size_t width);
-	void setHeight(size_t height);
-	void setBounds(size_t width, size_t height);
-	size_t getWidth();
-	size_t getHeight();
+	void setX(double x);
+	void setY(double y);
+	void setPosition(double x, double y);
+	double getX();
+	double getY();
+	void setWidth(double width);
+	void setHeight(double height);
+	void setBounds(double width, double height);
+	double getWidth();
+	double getHeight();
 	virtual std::string drawCurrentAboveToString() = 0;
 	virtual std::string drawCurrentBelowToString() = 0;
 protected:

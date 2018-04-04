@@ -4,46 +4,46 @@
 #include <sys/types.h>
 #include "Shape.h"
 
-void Shape::setX(size_t x) {
+void Shape::setX(double x) {
 	_x = x;
 }
 
-void Shape::setY(size_t y) {
+void Shape::setY(double y) {
 	_y = y;
 }
 
 // Convenience method to set X and Y at the same time
-void Shape::setPosition(size_t x, size_t y) {
+void Shape::setPosition(double x, double y) {
 	setX(x);
 	setY(y);
 }
 
-size_t Shape::getX() {
+double Shape::getX() {
 	return _x;
 }
 
-size_t Shape::getY() {
+double Shape::getY() {
 	return _y;
 }
 
-void Shape::setWidth(size_t width) {
+void Shape::setWidth(double width) {
 	_width = width;
 }
 
-void Shape::setHeight(size_t height) {
+void Shape::setHeight(double height) {
 	_height = height;
 }
 
 // Convenience method to set width and height at the same time
-void Shape::setBounds(size_t width, size_t height) {
+void Shape::setBounds(double width, double height) {
 	setWidth(width);
 	setHeight(height);
 }
 
-size_t Shape::getWidth() {
+double Shape::getWidth() {
 	return _width;
 }
 
-size_t Shape::getHeight() {
+double Shape::getHeight() {
 	return _height;
 }
