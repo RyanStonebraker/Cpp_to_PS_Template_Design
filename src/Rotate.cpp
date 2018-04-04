@@ -6,8 +6,8 @@
 #include <iostream>
 
 std::string Rotate::drawCurrentAboveToString() {
-  auto xOrigin = _target->getX() + double(_target->getWidth())/2;
-  auto yOrigin = _target->getY() + double(_target->getHeight())/2;
+  auto xOrigin = _target->getX() - double(_target->getWidth()) * 1.2;
+  auto yOrigin = _target->getY() - double(_target->getHeight()) * 2.3;
   std::string topString;
   topString += "gsave\n";
 

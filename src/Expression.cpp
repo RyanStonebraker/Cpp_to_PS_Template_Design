@@ -6,7 +6,7 @@
 #include <fstream>
 #include <utility>
 
-Expression::Expression() : _enclosingExpression(false), _units(72) {}
+Expression::Expression() : _enclosingExpression(false), _fileOutputted(false), _units(72) {}
 
 std::shared_ptr<Expression> & Expression::operator[](size_t index) {
   return _subExpressions[index];
@@ -14,6 +14,10 @@ std::shared_ptr<Expression> & Expression::operator[](size_t index) {
 
 size_t Expression::getNumberOfSubExpressions() const {
   return _subExpressions.size();
+}
+
+bool Expression::checkFileOutputStatus() const {
+  return _fileOutputted;
 }
 
 std::string Expression::drawToString() {
@@ -36,8 +40,8 @@ std::string Expression::drawToString() {
 
 void Expression::drawToFile(const std::string & file) {
   std::ofstream psWriter(file);
-
   psWriter << drawToString();
+  _fileOutputted = true;
 }
 
 void Expression::setUnits(size_t units) {

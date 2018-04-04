@@ -15,12 +15,12 @@ Rectangle::Rectangle(double width, double height) {
 std::string Rectangle::drawCurrentAboveToString() {
 	std::stringstream result;
 
-	result << psHeader(getX() * getUnits(), getY() * getUnits());
-	result << psMove(0, 0);
-	result << psLine(getWidth() * getUnits(), 0);
-	result << psLine(getWidth() * getUnits(), getHeight() * getUnits());
-	result << psLine(0, getHeight() * getUnits());
-	result << psFooter();
+	result << Canvas::psHeader(getX() * getUnits(), getY() * getUnits());
+	result << Canvas::psMove(0, 0);
+	result << Canvas::psLine(getWidth() * getUnits(), 0);
+	result << Canvas::psLine(getWidth() * getUnits(), getHeight() * getUnits());
+	result << Canvas::psLine(0, getHeight() * getUnits());
+	result << Canvas::psFooter();
 
 	return result.str();
 }

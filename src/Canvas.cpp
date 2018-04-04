@@ -7,14 +7,36 @@
 //
 
 #include "Canvas.h"
+#include "Page.h"
 
+Canvas::Canvas(const std::string & fileOut) : _currentPage(1), _fileOut(fileOut) {}
+
+void Canvas::addNewPage () {
+  Page newPage(_currentPage);
+  addExpression(newPage);
+  ++_currentPage;
+}
+
+std::string Canvas::drawCurrentAboveToString() {
+  return {"%!"};
+}
+
+std::string Canvas::drawCurrentBelowToString() {
+  return {"showpage"};
+}
+
+Canvas::~Canvas () {
+  if (!checkFileOutputStatus()) {
+    drawToFile(_fileOut);
+  }
+}
 
 /**
  * @brief generates ps code for ps file header
  * @details returns a string for ps file headers
  * @return string "%!\n"
  */
-string psBegin()
+std::string Canvas::psBegin()
 {
     return "%!\n";
 }
@@ -24,7 +46,7 @@ string psBegin()
  * @details returns a string containing the ps code for printing a page
  * @return string "showpage"
  */
-string psPageBreak()
+std::string Canvas::psPageBreak()
 {
     return "showpage";
 }
@@ -37,8 +59,8 @@ string psPageBreak()
  * @param y y coordinate of endpoint
  * @return string with ps code
  */
-string psLine(int x, int y){
-    return to_string(x) + " " + to_string(y) + " lineto\n";
+std::string Canvas::psLine(int x, int y){
+    return std::to_string(x) + " " + std::to_string(y) + " lineto\n";
 }
 
 /**
@@ -50,8 +72,8 @@ string psLine(int x, int y){
  *
  * @return string with ps code
  */
-string psMove(int x, int y){
-    return to_string(x) + " " + to_string(y) + " moveto\n";
+std::string Canvas::psMove(int x, int y){
+    return std::to_string(x) + " " + std::to_string(y) + " moveto\n";
 }
 
 /**
@@ -65,8 +87,8 @@ string psMove(int x, int y){
  * @param endAngle end angle for the arc, from 0 to 360 degrees
  * @return string containing ps code
  */
-string psArc(int x, int y, double r, int startAngle, int endAngle){
-    return to_string(x) + " " + to_string(y) + " " + to_string(r) + " " + to_string(startAngle) + " " + to_string(endAngle) + " arc\n";
+std::string Canvas::psArc(int x, int y, double r, int startAngle, int endAngle){
+    return std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(r) + " " + std::to_string(startAngle) + " " + std::to_string(endAngle) + " arc\n";
 }
 
 /**
@@ -78,8 +100,8 @@ string psArc(int x, int y, double r, int startAngle, int endAngle){
  *
  * @return string containing ps code
  */
-string psHeader(int x, int y){
-    return "gsave\nnewpath\n" + to_string(x) + " " + to_string(y) + " translate\n";
+std::string Canvas::psHeader(int x, int y){
+    return "gsave\nnewpath\n" + std::to_string(x) + " " + std::to_string(y) + " translate\n";
 }
 
 /**
@@ -87,6 +109,6 @@ string psHeader(int x, int y){
  * @details returns a string containing the ps code for a footer for draw functions in this library
  * @return string containing ps code
  */
-string psFooter(){
+std::string Canvas::psFooter(){
     return "closepath\nstroke\ngrestore\n";
 }

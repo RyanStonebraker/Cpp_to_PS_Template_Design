@@ -3,7 +3,7 @@
 
 #include "Polygon.h"
 
-Polygon::Polygon(double numberOfSides, double dimension) : _sides(numberOfSides), _startingAngle(0) {
+Polygon::Polygon(double numberOfSides, double dimension) : _sides(numberOfSides), _startingAngle(360/(numberOfSides+1)) {
   setBounds(dimension, dimension);
 }
 
@@ -17,8 +17,8 @@ void Polygon::setStartingAngle(double angle) {
 std::string Polygon::drawCurrentAboveToString () {
   std::string polygonPath;
   polygonPath += "newpath\n";
-  polygonPath += "/xOrigin " + convertUnits(getX(), 1) + " def\n";
-  polygonPath += "/yOrigin " + convertUnits(getY(), 1) + " def\n";
+  polygonPath += "/xOrigin " + convertUnits(getX() - double(getWidth() * 1.2), 1) + " def\n";
+  polygonPath += "/yOrigin " + convertUnits(getY() - double(getHeight() * 2.3), 1) + " def\n";
   polygonPath += "/radius " + convertUnits(getWidth()/2, 1) + " def\n";
   polygonPath += "/numberOfSides " + std::to_string(getSides()) + " def\n";
   polygonPath += "/angle " + convertUnits(getStartingAngle(), getUnits()) + " def\n";

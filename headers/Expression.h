@@ -28,10 +28,12 @@ public:
   size_t getUnits() const;
   std::string convertUnits(double expr, size_t oppUnits);
   void setEnclosing();
+  bool checkFileOutputStatus() const;
   virtual std::string drawCurrentAboveToString() = 0;
   virtual std::string drawCurrentBelowToString() = 0;
 private:
   bool _enclosingExpression;
+  bool _fileOutputted;
   size_t _units;
   std::vector<std::shared_ptr<Expression>> _subExpressions;
 };

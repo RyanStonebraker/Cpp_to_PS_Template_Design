@@ -1,31 +1,33 @@
-//
-//  Canvas.hpp
-//  cpp_to_ps
-//
-//  Created by Thatcher Lane on 3/31/18.
-//  Copyright © 2018 Thatcher Lane. All rights reserved.
-//
+// Canvas.h
+// Canvas container class
 
-#ifndef Canvas_h
-#define Canvas_h
+#ifndef CANVAS_H
+#define CANVAS_H
 
 #include <string>
-using std::string;
-using std::to_string;
 #include <sstream>
-using std::stringstream;
+#include "Expression.h"
 
 
-//functions that output ps code
-string psBegin();
-string psPageBreak();
+class Canvas : public Expression {
+public:
+  Canvas(const std::string & fileOut);
+  ~Canvas();
+  void addNewPage();
+  std::string drawCurrentAboveToString() override;
+  std::string drawCurrentBelowToString() override;
 
-//functions that generate ps code
-string psLine(int,int);
-string psMove(int,int);
-string psArc(int,int,double,int,int);
-string psHeader(int x, int y);
-string psFooter();
+  static std::string psBegin();
+  static std::string psPageBreak();
+  static std::string psLine(int,int);
+  static std::string psMove(int,int);
+  static std::string psArc(int,int,double,int,int);
+  static std::string psHeader(int x, int y);
+  static std::string psFooter();
 
+private:
+  size_t _currentPage;
+  std::string _fileOut;
+};
 
-#endif /* Canvas_h */
+#endif

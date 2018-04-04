@@ -16,11 +16,12 @@ double Circle::getRadius(){
 std::string Circle::drawCurrentAboveToString(){
   std::stringstream ss;
 
-  ss << psHeader(getX(),getY());
+  ss << "gsave\n";
+  ss << "newpath\n " << convertUnits(getX(), 1) << " " << convertUnits(getY(), 1) << " translate\n";
 
-  ss << psArc(0,0,_radius,0,360);
+  ss << Canvas::psArc(0,0,_radius * getUnits(),0,360);
 
-  ss << psFooter();
+  ss << Canvas::psFooter();
 
   return ss.str();
 }

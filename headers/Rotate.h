@@ -12,7 +12,7 @@
 
 class Rotate : public Expression {
 public:
-  enum RotationAngle {Left = 90, FLIP = 180, Right = 270};
+  enum RotationAngle {LEFT = 90, FLIP = 180, RIGHT = 270};
 
   Rotate(Shape & shape, RotationAngle rotationAmount) : _rotationAmount(rotationAmount) {
     _target = &shape;

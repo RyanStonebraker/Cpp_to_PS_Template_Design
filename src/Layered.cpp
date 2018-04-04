@@ -27,7 +27,7 @@ Layered::Layered(std::initializer_list<std::shared_ptr<Shape>> shapes)
 
 std::string Layered::drawCurrentAboveToString(){
   std::stringstream ss;
-  ss << psHeader(200,200);
+  ss << Canvas::psHeader(200,200);
 
 	for(unsigned int i = 0; i < _shapes.size(); ++i)
 	{
@@ -36,7 +36,7 @@ std::string Layered::drawCurrentAboveToString(){
     ss << "grestore\n";
 	}
 
-  ss << psFooter();
+  ss << Canvas::psFooter();
 
   return ss.str();
 

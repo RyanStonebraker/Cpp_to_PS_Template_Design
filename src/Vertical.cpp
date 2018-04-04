@@ -25,10 +25,6 @@ Vertical::Vertical (std::initializer_list<std::shared_ptr<Shape>> & shapes) : _x
 }
 
 std::string Vertical::drawCurrentAboveToString() {
-  // double currentHeight = 0;
-  // for (auto i = 0; i < getNumberOfSubExpressions(); ++i) {
-  //   (*this)[i]->setY(getY() + currentHeight);
-  // }
   return {};
 }
 
