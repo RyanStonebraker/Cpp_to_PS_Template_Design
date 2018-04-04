@@ -9,7 +9,7 @@
 #include "Canvas.h"
 #include "Page.h"
 
-Canvas::Canvas(const std::string & fileOut) : _currentPage(1), _fileOut(fileOut) {}
+Canvas::Canvas(const std::string & fileOut) : _currentPage(2), _fileOut(fileOut) {}
 
 void Canvas::addNewPage () {
   Page newPage(_currentPage);
@@ -18,7 +18,7 @@ void Canvas::addNewPage () {
 }
 
 std::string Canvas::drawCurrentAboveToString() {
-  return {"%!"};
+  return {"%!\n%% PAGE 1"};
 }
 
 std::string Canvas::drawCurrentBelowToString() {

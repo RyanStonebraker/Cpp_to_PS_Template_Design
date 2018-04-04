@@ -11,7 +11,7 @@
 class Square : public Polygon {
 public:
 	Square() = default;
-	Square(double sideLength) : Polygon(4, sideLength) {};
+	Square(double sideLength) : Polygon(4, sideLength) {setStartingAngle(45);};
 };
 
 #endif

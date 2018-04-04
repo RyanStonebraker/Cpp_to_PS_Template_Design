@@ -14,6 +14,7 @@
 #include "Star.h"
 #include "Triangle.h"
 #include "Canvas.h"
+#include "Square.h"
 
 #include <iostream>
 using std::cout;
@@ -43,26 +44,24 @@ int main () {
   pentagon.setPosition(5,10);
   testCanvas.addExpression(pentagon);
 
-  Spacer space(200,200);
-
   Circle circle(2, 2, 1);
   circle.setPosition(3,3);
   testCanvas.addExpression(circle);
 
-  // testCanvas.addNewPage();
-  // Rotate(triangle, Rotate::FLIP);
-  // Scale(pentagon, 100, 50);
+  testCanvas.addNewPage();
 
-  // Rotate rotateTest(pentagon, Rotate::RotationAngle::FLIP);
-  // pentagon.addExpression(rotateTest);
-  // pentagon.setPosition(3,3);
-  // std::vector <std::shared_ptr<Shape>> shapes;
-  // shapes.push_back(std::make_shared<Polygon>(pentagon));
-  // shapes.push_back(std::make_shared<Polygon>(triangle));
-  // Vertical stacker(shapes);
-  // Horizontal horizontal(shapes);
-  // Layered layers{std::make_shared<Polygon>(pentagon), std::make_shared<Polygon>(triangle)};
+  Square square(2);
+  square.setPosition(4,10);
+  testCanvas.addExpression(square);
 
-  // starShape.drawToFile("test2.ps");
-  // space.drawToFile("test2.ps");
+  Rectangle rectangleLayer(2,2);
+  rectangleLayer.setPosition(10,5);
+  Rectangle rect2Layer (2,2);
+  rect2Layer.setPosition(10,5);
+  std::vector <std::shared_ptr<Shape>> shapes;
+  shapes.push_back(std::make_shared<Rectangle>(rect2Layer));
+  shapes.push_back(std::make_shared<Rectangle>(rectangleLayer));
+  Vertical stacker(shapes);
+  stacker.setPosition(3,3);
+  testCanvas.addExpression(stacker);
 }
