@@ -27,7 +27,6 @@ Layered::Layered(std::initializer_list<std::shared_ptr<Shape>> shapes)
 
 std::string Layered::drawCurrentAboveToString(){
   std::stringstream ss;
-  std::cout << this->getX() << std::endl;
   ss << psHeader(200,200);
 
 	for(unsigned int i = 0; i < _shapes.size(); ++i)
