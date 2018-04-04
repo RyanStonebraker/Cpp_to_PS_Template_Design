@@ -24,12 +24,12 @@ A framework for generating PostScript from C++.
 - [x] Abstract Shape class inherited from Expression
 - [x] Rectangle
 - [x] Square
-- [ ] Scaled
+- [x] Scaled
 - [ ] Horizontal
 
 ### Thatcher
 - [x] Circle
 - [~] Canvas (parent of everything else - calling drawToFile will draw everything)
-- [ x] Triangle
-- [ x] Layered
+- [x] Triangle
+- [x] Layered
 - [ ] Test cases with Catch (and example programs)
