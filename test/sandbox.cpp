@@ -40,6 +40,7 @@ int main () {
   Layered layers{std::make_shared<Polygon>(pentagon), std::make_shared<Polygon>(triangle)};
 
   Star starShape (3);
+  starShape.setPosition(5,5);
   starShape.drawToFile("test2.ps");
   // space.drawToFile("test2.ps");
 }

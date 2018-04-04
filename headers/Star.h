@@ -12,10 +12,7 @@ public:
   Star(double dimension);
   std::string drawCurrentAboveToString() override;
   std::string drawCurrentBelowToString() override;
-  double getStartingAngle() const;
-  void setStartingAngle(double angle);
 private:
-  double _startingAngle;
 };
 
 #endif
