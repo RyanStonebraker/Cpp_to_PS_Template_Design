@@ -1,32 +1,22 @@
 //
 //  Layered.h
 //  cpp_to_ps
-//
-//  Created by Thatcher Lane on 4/1/18.
-//  Copyright © 2018 Thatcher Lane. All rights reserved.
-//
 
 #ifndef Layered_h
 #define Layered_h
 
 #include <stdio.h>
-#include "Shape.h"
-#include "Canvas.h"
+#include "Composite.h"
 
 #include <initializer_list>
 using std::initializer_list;
 
-class Layered : public Shape
+class Layered : public Composite
 {
 public:
-    Layered() = default;
-    Layered(std::initializer_list<std::shared_ptr<Shape>> shapes);
-    ~Layered() = default;
-    std::string drawCurrentAboveToString() override;
-    std::string drawCurrentBelowToString() override;
-private:
-    std::vector<std::shared_ptr<Shape>> _shapes;
+  Layered(std::vector <std::shared_ptr<Shape>> & shapes);
+  Layered(std::initializer_list<std::shared_ptr<Shape>> & shapes);
 };
 
 
-#endif /* Layered_h */
+#endif
